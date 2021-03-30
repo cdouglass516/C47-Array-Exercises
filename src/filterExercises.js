@@ -65,7 +65,26 @@ export const getStudentsByLanguage = (language) =>{
 /******** ADVANCED CHALLENGE ********/
 /******** Only do this if all other tests are passing ****/
 /******** To test, uncomment the code at the bottom of tests/filter.spec.js  *****/
+export const getStudentsByLanguages = (languages) =>{
 
+    return useStudents().filter(student =>{
+        let isInArray = true;
+        languages.forEach(item =>{
+            if(!student.languages.includes(item))isInArray = false
+         })
+        return isInArray;
+    })
+
+}
+
+const inArray = (a, b) =>{
+    isInArray = true;
+  b.forEach(item =>{
+     if(!a.includes(item))isInArray = false
+  })
+    return isInArray;
+  }
+  
 // Export a function called getStudentsByLanguages
 // It should accept an array of strings as a parameter named `languages`
 // It should return an array of students who know ALL of the given languages
